@@ -14,6 +14,7 @@ class FirstScreen extends StatelessWidget{
           Image.asset(
             'assets/images/quiz-logo.png',
             width: 300,
+            color: const Color.fromARGB(150, 255, 255, 255),
           ),
           const SizedBox(height: 50),
           const Text(
@@ -25,7 +26,9 @@ class FirstScreen extends StatelessWidget{
           ),
           const SizedBox(height: 30),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              
+            },
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),
