@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quiz_app/gradient_conatiner.dart';
 import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/screen.dart';
 
-class QuizScreen extends StatefulWidget{
+class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
 
   @override
@@ -15,46 +14,42 @@ class QuizScreen extends StatefulWidget{
   }
 }
 
-class _QuizScreenState extends State<QuizScreen>{
-  Widget? activeScreen;
+class _QuizScreenState extends State<QuizScreen> {
+  var activeScreen = 'start-screen';
 
-  @override
-  void initState() {
-    super.initState();
-    activeScreen = FirstScreen(switchScreen);
-  }
-
-  void switchScreen(){
+  void switchScreen() {
     setState(() {
-      activeScreen = const QuestionsScreen();
+      activeScreen = 'questions-screen';
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
+    Widget screenWidget =FirstScreen(switchScreen);
+
+    if (activeScreen  == 'questions-screen') {
+      screenWidget = const QuestionsScreen();
+    }
+
+
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
-        body:  Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.deepPurple,
-            Colors.purple,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          )
-      ),
-
-      child: Center(
-        child: activeScreen,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepPurple,
+                Colors.purple,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          child: screenWidget,
         ),
-      ),
       ),
     );
   }
 }
-
-
-
