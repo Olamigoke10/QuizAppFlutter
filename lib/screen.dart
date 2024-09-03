@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FirstScreen extends StatefulWidget{
+class FirstScreen extends StatelessWidget{
   const FirstScreen({super.key});
-
-  @override
-  State<FirstScreen> createState() {
-    // TODO: implement createState
-    return _FirstScreen();
-  }
-} 
-
-class _FirstScreen extends State<FirstScreen>{
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +12,8 @@ class _FirstScreen extends State<FirstScreen>{
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            'assets/images/quiz-logo.png'
+            'assets/images/quiz-logo.png',
+            width: 300,
           ),
           const SizedBox(height: 50),
           const Text(
@@ -32,15 +24,13 @@ class _FirstScreen extends State<FirstScreen>{
           ),
           ),
           const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: null,
-           style: ElevatedButton.styleFrom(
-            textStyle: const TextStyle(
-              fontSize: 20,
-            )
-           ),
-           child: const Text('Start here', 
-           ),
+          OutlinedButton.icon(
+            onPressed: () {},
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Colors.white,
+            ),
+            icon: const Icon(Icons.arrow_right_alt),
+           label: const Text("Start Quiz"),
            ),
         ],
       ),
