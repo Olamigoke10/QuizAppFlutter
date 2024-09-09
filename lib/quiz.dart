@@ -7,8 +7,7 @@ import 'package:quiz_app/screen.dart';
 import 'package:quiz_app/result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
-
+  const QuizScreen({super.key,});
   @override
   State<QuizScreen> createState() {
     // TODO: implement createState
@@ -41,15 +40,16 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
 
-    Widget screenWidget =FirstScreen(switchScreen);
+    Widget screenWidget = FirstScreen(switchScreen);
 
     if (activeScreen  == 'questions-screen') {
       screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer,);
     }
 
     if(activeScreen == 'results-screen'){
-      screenWidget = const ResultsScreen();
+      screenWidget =ResultsScreen(chosenAnswers: selectedAnswers,);
     }
 
 
