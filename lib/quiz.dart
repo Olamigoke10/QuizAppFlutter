@@ -4,6 +4,7 @@ import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/gradient_conatiner.dart';
 import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/screen.dart';
+import 'package:quiz_app/result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -31,9 +32,11 @@ class _QuizScreenState extends State<QuizScreen> {
     if (selectedAnswers.length == questions.length){
       setState(() {
         selectedAnswers = [];
-        activeScreen = 'start-screen';
+        activeScreen = 'results-screen';
       });
     }
+
+
   }
 
   @override
@@ -43,6 +46,10 @@ class _QuizScreenState extends State<QuizScreen> {
 
     if (activeScreen  == 'questions-screen') {
       screenWidget = QuestionsScreen(onSelectAnswer: chooseAnswer,);
+    }
+
+    if(activeScreen == 'results-screen'){
+      screenWidget = const ResultsScreen();
     }
 
 
